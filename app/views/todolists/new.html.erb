@@ -1,0 +1,14 @@
+<h1>新規投稿<h1>
+  <%= form_with model:@list, url:'/todolists', local:true do |f| %>
+  <!--modelはデータベースとやりとりするクラスのため、新規投稿の際は空のクラスを設定。-->
+  <!--local:trueはjavascript-->
+    <h4>タイトル</h4>
+    <%= f.text_field :title %>
+    <!--タイトルを入力する覧-->
+    <!--%=は内容を表示したい箇所を作る時に用いる-->
+    <h4>本文</h4>
+    <%= f.text_area :body %>
+    <!--内容を投稿する覧-->
+    <%= f.submit '投稿' %>
+    <!--投稿ボタン-->
+  <% end %>
