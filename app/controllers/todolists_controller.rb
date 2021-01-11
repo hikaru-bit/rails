@@ -17,7 +17,7 @@ class TodolistsController < ApplicationController
     # List.allメソッドでは、listsテーブルからすべてのデータを取得し、インスタンス変数@listsに代入します。
     # インスタンス変数にはすべてのデータが取り出されて格納されるため、インスタンス変数名を複数形にしています。
   end
-  
+
   def show
     @list = List.find(params[:id])
     # 詳細画面で呼び出される投稿データは、URLの/todolist/:id内の:idで判別します。
@@ -25,10 +25,17 @@ class TodolistsController < ApplicationController
     # たとえば、URLが/todolist/1の場合、params[:id] と記述すると、id=1を取り出せます。
     # id=1のデータをfindメソッドを利用してデータベースから取得し、@listへ格納します。
   end
-  
+
   def edit
     @list = List.find(params[:id])
     # 今回は投稿済みのデータを編集するので、保存されているデータが必要です。findメソッドを用いて、データを取得しましょう。
+  end
+
+  def update
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to todolist_path(list.id)
+    # 新たなviewは作成せず、showのviewへリダイレクトさせる
   end
 
   private

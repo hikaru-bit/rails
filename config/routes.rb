@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # ここでは、「'todolists#show'の設定を、todolistとして利用できる」の意味になります
   get 'todolists/:id/edit' => 'todolists#edit', as: 'edit_todolist'
   # todolists/:id/editのように、ルーティングのURLに:idを用いて記述すると、todolists/◯◯/editのすべてのURLが対象になります。
+
+  patch 'todolists/:id' => 'todolists#update', as: 'update_todolist'
+  # 更新の場合はPATCHで指定します。
 end
