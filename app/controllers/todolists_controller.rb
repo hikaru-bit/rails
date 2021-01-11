@@ -25,6 +25,11 @@ class TodolistsController < ApplicationController
     # たとえば、URLが/todolist/1の場合、params[:id] と記述すると、id=1を取り出せます。
     # id=1のデータをfindメソッドを利用してデータベースから取得し、@listへ格納します。
   end
+  
+  def edit
+    @list = List.find(params[:id])
+    # 今回は投稿済みのデータを編集するので、保存されているデータが必要です。findメソッドを用いて、データを取得しましょう。
+  end
 
   private
   # ストロングパラメータ
