@@ -8,8 +8,8 @@ class TodolistsController < ApplicationController
       # １. データを新規登録するためのインスタンス作成
       list.save
       # ２. データをデータベースに保存するためのsaveメソッド実行
-      redirect_to '/top'
-      # ３. トップ画面へリダイレクト
+      redirect_to todolist_path(list.id)
+      # show.html.erbへリダイレクトさせて、投稿内容がすぐに閲覧できるようにしましょう
   end
 
   def index
