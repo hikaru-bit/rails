@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   # getメソッドでtopをクリックしたらhomesコントローラーのtopアクションが呼び出される
   post 'todolists' => 'todolists#create'
   # todolistsのURLにPOSTメソッドでアクセスしたときにtodolistsコントローラーのcreateアクションが呼び出される 
+  get 'todolists' => 'todolists#index'
+  
+  get 'todolists/:id' => 'todolists#show', as: 'todolists'
 end
