@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   # todolistsのURLにPOSTメソッドでアクセスしたときにtodolistsコントローラーのcreateアクションが呼び出される 
   get 'todolists' => 'todolists#index'
   
-  get 'todolists/:id' => 'todolists#show', as: 'todolists'
+  get 'todolists/:id' => 'todolists#show', as: 'todolist'
+  # 投稿の詳細画面を作成するため、コントローラにshowアクションを作成します。
+  # 詳細画面では、どの投稿データを表示するかを判別するために、投稿データのidもURLに含めます。
+  # 例えば/todolists/1 /todolists/3のように
+  # as: '名前' は「名前付きルート」といい、コード内でURLをわかりやすく書くために使われます。
+  # ここでは、「'todolists#show'の設定を、todolistとして利用できる」の意味になります
 end

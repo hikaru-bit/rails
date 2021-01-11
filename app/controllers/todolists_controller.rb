@@ -17,6 +17,14 @@ class TodolistsController < ApplicationController
     # List.allメソッドでは、listsテーブルからすべてのデータを取得し、インスタンス変数@listsに代入します。
     # インスタンス変数にはすべてのデータが取り出されて格納されるため、インスタンス変数名を複数形にしています。
   end
+  
+  def show
+    @list = List.find(params[:id])
+    # 詳細画面で呼び出される投稿データは、URLの/todolist/:id内の:idで判別します。
+    # この:idは、アクション内にparams[:id]と記述することで取得できます。
+    # たとえば、URLが/todolist/1の場合、params[:id] と記述すると、id=1を取り出せます。
+    # id=1のデータをfindメソッドを利用してデータベースから取得し、@listへ格納します。
+  end
 
   private
   # ストロングパラメータ
