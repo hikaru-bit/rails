@@ -1,19 +1,15 @@
-<h1>投稿一覧</h1>
+<div class="list-wrap">
 <% @lists.each do |list| %>
 <!--配列がもつ要素を順番に取得して処理を実行したいときは、eachメソッドを使います。
 @lists.eachと記述することで、Listレコードの数だけ繰り返し処理を行います。-->
- <p>タイトル</p>
- <span>
-  <%= link_to list.title, todolist_path(list.id) %>
-  <!--list.titleと記述することで、投稿のタイトルが表示されます。-->
-  <!--リンクを設定するには、link_toメソgitッドを利用します。-->
-  <!--リンク先URLは、/todolists/:idの「:idに該当する部分」を指定します。-->
-  <!--上記はtodolist_path(list.id)のように、カッコ内の引数でidを指定し、名前つきルートにしています。-->
- </span>
- <P>画像</P>
- <%= attachment_image_tag list, :image, :fill, 100, 100, format: 'jpeg' %>
- <!--一覧画面と詳細画面に投稿した画像を表示します。
-該当箇所にattachment_image_tagを埋め込みます。上記のように記述します。
-画像の幅を:fillで指定し、高さをpxで指定しています。また、表示する画像の拡張子をformatで指定しています。Refile特有の書き方です-->
+ <div class="list-box">
+  <%= attachment_image_tag list, :image, :fill, 200, 200, format: 'jpeg' %>
+  <div class="list-comment">
+   <span class="list-body"><%= list.body %></span>
+   <span class="list-title"><%=link_to list.title, todolist_path(list.id) %> </span>
+  </div>
+ </div>
+ 
  
 <% end %>
+</div> 
