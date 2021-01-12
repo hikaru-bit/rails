@@ -9,6 +9,8 @@
     <h4>本文</h4>
     <%= f.text_area :body %>
     <!--内容を投稿する覧-->
+    <h4>画像</h4>
+    <%= f.attachment_field :image %>
     <%= f.submit '投稿' %>
     <!--投稿ボタン-->
   <% end %>

@@ -49,7 +49,7 @@ class TodolistsController < ApplicationController
 
 
   def list_params
-      params.require(:list).permit(:title, :body)
+      params.require(:list).permit(:title, :body, :image)
     #ストロングパラメータの構文はこのようにおおよそ決まっている
   end
 end

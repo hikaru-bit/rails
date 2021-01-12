@@ -10,5 +10,10 @@
   <!--リンク先URLは、/todolists/:idの「:idに該当する部分」を指定します。-->
   <!--上記はtodolist_path(list.id)のように、カッコ内の引数でidを指定し、名前つきルートにしています。-->
  </span>
+ <P>画像</P>
+ <%= attachment_image_tag list, :image, :fill, 100, 100, format: 'jpeg' %>
+ <!--一覧画面と詳細画面に投稿した画像を表示します。
+該当箇所にattachment_image_tagを埋め込みます。上記のように記述します。
+画像の幅を:fillで指定し、高さをpxで指定しています。また、表示する画像の拡張子をformatで指定しています。Refile特有の書き方です-->
  
 <% end %>
