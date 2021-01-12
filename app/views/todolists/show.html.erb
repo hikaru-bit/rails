@@ -6,3 +6,12 @@
 <%= attachment_image_tag @list, :image, :fill, 300, 300, format:'jpeg' %>
 
 <%= link_to "編集", edit_todolist_path(@list.id) %>
+<%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<!--「削除」ボタンをクリックしたときにアクションが実行されるリンク先を、link_toメソッドで設定します。上記のように記述します。
+link_toのリンク先HTTPメソッドは、GET、POST、PATCH、DELETEを指定できます。
+link_toでHTTPメソッドを指定しない場合は、GETメソッドで設定されます（デフォルト値）。
+
+destroyアクションのHTTPメソッドはDELETEです。このため、link_toの引数で{method: :delete}を指定します。ちなみに、{ }は省略も可能です。
+
+※HTTPメソッドのデフォルト値
+なお、HTTPメソッドのデフォルト値は、メソッドでそれぞれ決まっています。link_toとredirect_toはGET、form_withはPOSTまたはPATCHです。-->

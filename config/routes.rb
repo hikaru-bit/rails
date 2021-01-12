@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   patch 'todolists/:id' => 'todolists#update', as: 'update_todolist'
   # 更新の場合はPATCHで指定します。
+  
+  delete 'todolists/:id' => 'todolists#destroy', as: 'destroy_todolist'
 end
